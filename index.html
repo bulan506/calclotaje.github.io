@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Lot Size Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Lot Size</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
-    <div class="eyebrow" id="eyebrow">Position Size</div>
+<div class="app">
+  <div class="eyebrow" id="eyebrow">Position Size</div>
 
-    <div class="controls-row">
-      <div class="tabs-container">
-        <div class="tabs-scroll" id="tabs-scroll"></div>
-        <button class="tab-add" id="btn-more" aria-label="Más pares">+</button>
-      </div>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-        </svg>
-        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
-      <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Cambiar idioma">
-        <button class="lang-opt" data-lang="es">ES</button>
-        <button class="lang-opt" data-lang="en">EN</button>
-      </div>
+  <div class="controls-row">
+    <div class="tabs-container">
+      <div class="tabs-scroll" id="tabs-scroll"></div>
+      <button class="tab-add" id="btn-more" aria-label="Más pares">+</button>
     </div>
-
-    <div class="fields">
-      <div class="field-group">
-        <span class="section-label" id="account-label">Cuenta</span>
-        <div class="chips" id="account-chips" style="margin-top: 0;"></div>
-      </div>
-
-      <div class="field-group" id="risk-group">
-        <div class="field">
-          <span class="field-label">
-            <span id="risk-label-text">Riesgo ($)</span><span class="field-hint" id="risk-hint"></span>
-          </span>
-          <input type="text" id="risk" value="25" placeholder="0" inputmode="decimal" autocomplete="off">
-        </div>
-        <div class="chips" id="percent-chips"></div>
-        <div class="slider-wrap" id="risk-wrap">
-          <div class="slider">
-            <div class="slider-track"></div>
-            <input type="range" id="risk-slider" min="0" max="1" step="0.0001" value="0.378">
-          </div>
-          <div class="ticks" id="risk-ticks"></div>
-        </div>
-      </div>
-
-      <div class="field-group" id="sl-group">
-        <div class="field">
-          <span class="field-label" id="slLabel">Distancia SL</span>
-          <input type="text" id="sl" value="10" placeholder="0" inputmode="decimal" autocomplete="off">
-        </div>
-        <div class="slider-wrap" id="sl-wrap">
-          <div class="slider">
-            <div class="slider-track"></div>
-            <input type="range" id="sl-slider" min="0" max="1" step="0.0001" value="0.565">
-          </div>
-          <div class="ticks" id="sl-ticks"></div>
-        </div>
-      </div>
-
-      <div class="field-group" id="mult-group">
-        <div class="field">
-          <span class="field-label" id="mult-label">Multiplicador</span>
-          <input type="text" id="mult" value="100" placeholder="1" inputmode="decimal" autocomplete="off">
-        </div>
-        <div class="chips" id="mult-chips"></div>
-      </div>
-    </div>
-
-    <div class="result">
-      <div class="result-number" id="result">0.0250</div>
-      <div class="result-unit" id="result-unit">lotes</div>
-      <div class="result-breakdown" id="breakdown">25 ÷ (10 × 100)</div>
-    </div>
-
-    <div class="footer" id="footer">
-      Built by <a href="https://github.com/bulan506" target="_blank" rel="noopener noreferrer">Brandon Vargas</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+      <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+      <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Cambiar idioma">
+      <button class="lang-opt" data-lang="es">ES</button>
+      <button class="lang-opt" data-lang="en">EN</button>
     </div>
   </div>
 
-  <div class="sheet-backdrop" id="sheet-backdrop">
-    <div class="sheet" id="sheet" role="dialog" aria-label="Más pares">
-      <div class="sheet-handle"></div>
-      <h2 class="sheet-title" id="sheet-title">Más pares</h2>
-      <p class="sheet-subtitle">
-        <span id="sheet-subtitle-text">La fórmula es la misma. Solo cambia el multiplicador.</span>
-        <br>
-        <span id="sheet-tip" style="opacity:0.7;">Tip: mantené apretado un tab para borrarlo.</span>
-      </p>
-      <div id="sheet-body"></div>
-      <div class="sheet-footer" id="sheet-footer-text">Multiplicadores aproximados — editables en el campo Multiplicador.</div>
+  <div class="fields">
+    <div class="field-group">
+      <span class="section-label" id="account-label">Cuenta</span>
+      <div class="chips" id="account-chips" style="margin-top: 0;"></div>
+    </div>
+
+    <div class="field-group" id="risk-group">
+      <div class="field">
+        <span class="field-label">
+          <span id="risk-label-text">Riesgo ($)</span><span class="field-hint" id="risk-hint"></span>
+        </span>
+        <input type="text" id="risk" value="25" placeholder="0" inputmode="decimal" autocomplete="off">
+      </div>
+      <div class="chips" id="percent-chips"></div>
+      <div class="slider-wrap" id="risk-wrap">
+        <div class="slider">
+          <div class="slider-track"></div>
+          <input type="range" id="risk-slider" min="0" max="1" step="0.0001" value="0.378">
+        </div>
+        <div class="ticks" id="risk-ticks"></div>
+      </div>
+    </div>
+
+    <div class="field-group" id="sl-group">
+      <div class="field">
+        <span class="field-label" id="slLabel">Distancia SL</span>
+        <input type="text" id="sl" value="10" placeholder="0" inputmode="decimal" autocomplete="off">
+      </div>
+      <div class="slider-wrap" id="sl-wrap">
+        <div class="slider">
+          <div class="slider-track"></div>
+          <input type="range" id="sl-slider" min="0" max="1" step="0.0001" value="0.565">
+        </div>
+        <div class="ticks" id="sl-ticks"></div>
+      </div>
+    </div>
+
+    <div class="field-group" id="mult-group">
+      <div class="field">
+        <span class="field-label" id="mult-label">Multiplicador</span>
+        <input type="text" id="mult" value="100" placeholder="1" inputmode="decimal" autocomplete="off">
+      </div>
+      <div class="chips" id="mult-chips"></div>
     </div>
   </div>
+
+  <div class="result">
+    <div class="result-number" id="result">0.0250</div>
+    <div class="result-unit" id="result-unit">lotes</div>
+    <div class="result-breakdown" id="breakdown">25 ÷ (10 × 100)</div>
+  </div>
+
+  <div class="footer" id="footer">
+    Built by <a href="https://github.com/bulan506" target="_blank" rel="noopener noreferrer">Brandon Vargas</a>
+  </div>
+</div>
+
+<div class="sheet-backdrop" id="sheet-backdrop">
+  <div class="sheet" id="sheet" role="dialog" aria-label="Más pares">
+    <div class="sheet-handle"></div>
+    <h2 class="sheet-title" id="sheet-title">Más pares</h2>
+    <p class="sheet-subtitle">
+      <span id="sheet-subtitle-text">La fórmula es la misma. Solo cambia el multiplicador.</span>
+      <br>
+      <span id="sheet-tip" style="opacity:0.7;">Tip: mantené apretado un tab para borrarlo.</span>
+    </p>
+    <div id="sheet-body"></div>
+    <div class="sheet-footer" id="sheet-footer-text">Multiplicadores aproximados — editables en el campo Multiplicador.</div>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>
